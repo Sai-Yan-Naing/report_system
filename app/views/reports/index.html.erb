@@ -1,0 +1,30 @@
+<div class="container-fluid mt-5">
+	<div class="row">
+		<div class="col-md-12">
+			<h4><%= link_to "Add a New Report", new_report_path, :class => "cs-btn new-report" %></h4>
+			<table class="table">
+			    <thead>
+			      <tr>
+			        <th>Date</th>
+			        <th>Morning</th>
+			        <th>Evening</th>
+			        <th>Remark</th>
+			        <th></th>
+			      </tr>
+			    </thead>
+			    <tbody>
+			      <% @reports.each do |rp| %>
+			      <tr>
+			      	<td><%= rp.rp_date %></td>
+			      	<td><%= rp.morning %></td>
+			      	<td><%= rp.evening %></td>
+			      	<td><%= rp.remark %></td>
+			      	<td><%= link_to "Show", report_path(rp.id), :class => "cs-btn" %> | <%= link_to "Edit", edit_report_path(rp.id), :class => "cs-btn" %> | <%= link_to "Delete", report_path(rp.id), method: :delete, data: { confirm: 'Are you want to delete?' }, :class => "cs-btn cs-btn-danger" %></td>
+			      </tr>
+			      <% end %>
+			    </tbody>
+			  </table>
+		</div>
+	</div>
+</div>
+

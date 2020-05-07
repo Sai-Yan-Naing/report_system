@@ -1,0 +1,27 @@
+<div class="container-fluid mt-5">
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<table class="table">
+			      <tr>
+			        <th>Developer</th>
+			        <td><%= @report.rp_id %></td>
+			      </tr>
+			      <tr>
+			        <th>Morning</th>
+			        <td><%= @report.morning %></td>
+			      </tr>
+			      <tr>
+			        <th>Evening</th>
+			        <td><%= @report.evening %></td>
+			      </tr>
+			      <tr>
+			        <td><%= link_to "Edit", edit_report_path %></td>
+			        <td><%= link_to "Back", reports_path %></td>
+			      </tr>
+			  </table>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+</div>
+

@@ -1,0 +1,51 @@
+<%= provide(:title, "New Report") %>
+<div class="container-fluid mt-5">
+	<div class="row">
+		<div class="col-md-4"></div>
+		<div class="col-md-4">
+			<h3>Create a new Report in Reporting System</h3>
+			<%= form_with scope: :report, url: reports_path, local: true do |f| %>
+				  <% if @report.errors.any? %>
+				    <div id="error_explanation">
+				      <ul>
+				        <% @report.errors.full_messages.each do |msg| %>
+				          <li><%= msg %></li>
+				        <% end %>
+				      </ul>
+				    </div>
+				  <% end %>
+				<div class="form-group">
+					<%= f.label :rp_id, "Name" %>
+					<%= f.text_field :rp_id, :class => "form-control" %>
+			    </div>
+
+			    <div class="form-group">
+					<%= f.label :rp_date, "Date" %>
+					<%= f.date_select :rp_date, :class => "form-control" %>
+			    </div>
+
+			    <div class="form-group">
+					<%= f.label :morning %>
+					<%= f.text_area :morning, :class => "form-control cs-textarea" %>
+			    </div>
+			    <div class="form-group">
+					<%= f.label :evening %>
+					<%= f.text_area :evening, :class => "form-control cs-textarea" %>
+			    </div>
+			    <div class="form-group">
+					<%= f.label :remark %>
+					<%= f.text_area :remark, :class => "form-control cs-textarea" %>
+			    </div>
+			    <div class="form-group">
+			    	<%= f.submit :class => "form-control btn btn-success" %>
+				</div>
+			    <div class="form-group">
+			    	<%= link_to "Back", reports_path, :class => "form-control btn btn-success" %>
+			    </div>
+			    
+			<% end %>
+			
+		</div>
+		<div class="col-md-4"></div>
+	</div>
+</div>
