@@ -4,7 +4,7 @@
 		<div class="col-md-4"></div>
 		<div class="col-md-4">
 			<h3>Sign Up in Reporting System</h3>
-			<%= form_with(model: @user, local: true ) do |f| %>
+			<%= form_for(@user) do |f| %>
 				<% if @user.errors.any? %>
 				    <div id="error_explanation">
 				      <h2>
