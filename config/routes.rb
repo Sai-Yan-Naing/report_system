@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   get 'sessions/new'
   get 'users/index'
   get 'home/index'
+  delete '/logout',  to: 'sessions#destroy'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root 'home#index'
+  root 'reports#index'
   resources :users
   resources :sessions
   resources :articles

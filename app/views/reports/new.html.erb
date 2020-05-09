@@ -14,11 +14,9 @@
 				      </ul>
 				    </div>
 				  <% end %>
-				<div class="form-group">
-					<%= f.label :rp_id, "Name" %>
-					<%= f.text_field :rp_id, :class => "form-control" %>
+				  <div class="form-group">
+					<%= f.hidden_field :user_id, value: "#{current_user.id}", :class => "form-control" %>
 			    </div>
-
 			    <div class="form-group">
 					<%= f.label :rp_date, "Date" %>
 					<%= f.date_select :rp_date, :class => "form-control" %>

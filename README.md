@@ -22,3 +22,5 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+solve bcrypt with gem install bcrypt-ruby --platform=ruby
+https://github.com/codahale/bcrypt-ruby/issues/85

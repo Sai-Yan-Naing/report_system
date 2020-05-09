@@ -1,17 +1,38 @@
 class ReportsController < ApplicationController
   def index
-  	@reports = Report.all
+    # @reports = Report.all
+    if logged_in?
+      # @reports = Report.all
+      @reports = Report.where(:user_id=>current_user.id)
+    else
+      redirect_to new_session_path
+      end
   end
   def new
-  	@report = Report.new
+  	# @report = Report.new
+    if logged_in?
+      @report = Report.new
+    else
+      redirect_to new_session_path
+      end
   end
 
   def show
-  	@report = Report.find(params[:id])
+  	# @report = Report.find(params[:id])
+    if logged_in?
+      @report = Report.find(params[:id])
+    else
+      redirect_to new_session_path
+      end
   end
 
   def edit
-  	@report = Report.find(params[:id])
+  	# @report = Report.find(params[:id])
+    if logged_in?
+      @report = Report.find(params[:id])
+    else
+      redirect_to new_session_path
+      end
   end
 
   def create
@@ -41,6 +62,6 @@ class ReportsController < ApplicationController
 
   private
   def report_params
-  	params.require(:report).permit(:rp_id, :rp_date, :morning, :evening, :remark)
+  	params.require(:report).permit(:user_id, :rp_date, :morning, :evening, :remark)
   end
 end

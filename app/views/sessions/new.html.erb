@@ -4,14 +4,14 @@
 		<div class="col-md-4"></div>
 		<div class="col-md-4">
 			<h3>SignIn in Reporting System</h3>
-			<%= form_with(model: @user, local: true ) do |f| %>
+			<%= form_for(:session, url: sessions_path) do |f| %>
 			    <div class="form-group">
 					<%= f.label :email %>
 					<%= f.text_field :email, :class => "form-control" %>
 			    </div>
 			    <div class="form-group">
 					<%= f.label :password %>
-					<%= f.text_field :password, :class => "form-control" %>
+					<%= f.password_field :password, :class => "form-control" %>
 			    </div>
 			    <%= f.submit :class => "form-control btn btn-success" %>
 			<% end %>

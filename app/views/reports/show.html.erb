@@ -5,7 +5,7 @@
 			<table class="table">
 			      <tr>
 			        <th>Developer</th>
-			        <td><%= @report.rp_id %></td>
+			        <td><%= current_user.name %></td>
 			      </tr>
 			      <tr>
 			        <th>Morning</th>
@@ -14,6 +14,14 @@
 			      <tr>
 			        <th>Evening</th>
 			        <td><%= @report.evening %></td>
+			      </tr>
+			      <tr>
+			        <th>Date</th>
+			        <td><%= @report.rp_date %></td>
+			      </tr>
+			      <tr>
+			        <th>Remark</th>
+			        <td><%= @report.remark %></td>
 			      </tr>
 			      <tr>
 			        <td><%= link_to "Edit", edit_report_path %></td>
