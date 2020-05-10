@@ -18,3 +18,47 @@
 {
 	/*max-height: 100px;*/
 }
+
+.cs-tb-header
+{
+	background-color: #429e9e;
+	color: #fff;
+	/*text-align: center;*/
+	/*height: 50px;
+    line-height: 50px;*/
+    font-size: 18px;
+    font-weight: bold;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    .cs-rp-col-date-header
+    {
+    	border-top-left-radius: 15px;
+    }
+    .cs-rp-col-action-header
+    {
+    	border-top-right-radius: 15px;
+    }
+}
+.cs-tb-body
+{
+	background-color: #f2f2f2;
+}
+
+.cs-rp-row
+{
+	display: flex;
+
+	.cs-rp-col
+	{
+		width: 25%;
+		padding: 12px;
+		border: 1px solid #fff;
+	}
+
+	.cs-rp-col-date, .cs-rp-col-action
+	{
+		width: 12.5%;
+		padding: 12px;
+		border: 1px solid #fff;
+	}
+}
