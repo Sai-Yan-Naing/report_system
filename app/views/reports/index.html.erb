@@ -1,4 +1,4 @@
-<div class="container-fluid mt-5">
+<div class="container-fluid mt-80">
 	<div class="row">
 		<div class="col-md-12">
 			<h4><%= link_to "Add a New Report", new_report_path, :class => "cs-btn new-report" %></h4>
@@ -12,7 +12,7 @@
 			  	</div>
 			  	<% @reports.each do |rp| %>
 			  	<div class="cs-rp-row cs-tb-body">
-			  		<div class="cs-rp-col-date"><%= rp.rp_date %></div>
+			  		<div class="cs-rp-col-date"><%= rp.date %></div>
 			  		<div class="cs-rp-col"><%= rp.morning %></div>
 			  		<div class="cs-rp-col"><%= rp.evening %></div>
 			  		<div class="cs-rp-col"><%= rp.remark %></div>

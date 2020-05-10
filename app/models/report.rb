@@ -1,3 +1,5 @@
 class Report < ApplicationRecord
-	validates :rp_date, presence: true
+	validates :date, presence: true
+	validates :morning, presence: true, length:{minimum:20}
+	validates :evening, presence: true, length:{minimum:20}
 end

@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2020_05_07_050416) do
 
   create_table "reports", force: :cascade do |t|
     t.integer "user_id"
-    t.date "rp_date"
+    t.date "date"
     t.text "morning"
     t.text "evening"
     t.text "remark"
