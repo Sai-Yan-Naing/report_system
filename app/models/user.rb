@@ -1,6 +1,7 @@
 class User < ApplicationRecord
 	# for all input email to lower case
 	 before_save { self.email = email.downcase }
+	 has_many :reports, dependent: :destroy
 
 	 # for email format
 	VALID_EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i

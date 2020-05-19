@@ -1,3 +1,11 @@
 
 for out put date format
 <%= f.date_select :rp_date,{ :start_year => 2020, :end_year => 2040 }, :class => "form-control" %>
+
+
+add jquery
+
+https://www.botreetechnologies.com/blog/introducing-jquery-in-rails-6-using-webpacker
+
+to output user name from report controller
+https://stackoverflow.com/questions/27693339/rails-show-the-user-who-posted-the-post

@@ -10,24 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_07_050416) do
+ActiveRecord::Schema.define(version: 2020_05_18_073835) do
 
   create_table "reports", force: :cascade do |t|
-    t.integer "user_id"
+    t.integer "user_id", null: false
     t.date "date"
-    t.text "morning"
-    t.text "evening"
-    t.text "remark"
+    t.string "morning"
+    t.string "evening"
+    t.string "remark"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_reports_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
+    t.string "department"
+    t.string "team"
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "reports", "users"
 end

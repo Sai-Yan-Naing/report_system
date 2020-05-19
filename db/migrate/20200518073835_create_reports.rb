@@ -1,11 +1,11 @@
 class CreateReports < ActiveRecord::Migration[6.0]
   def change
     create_table :reports do |t|
-      t.integer :user_id
+      t.references :user, null: false, foreign_key: true
       t.date :date
-      t.text :morning
-      t.text :evening
-      t.text :remark
+      t.string :morning
+      t.string :evening
+      t.string :remark
 
       t.timestamps
     end

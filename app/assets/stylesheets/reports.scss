@@ -5,7 +5,10 @@
 {
 	text-decoration: none !important;
 }
-
+.rp-bg
+{
+	background-color: #d6a5a5;
+}
 .cs-btn-danger
 {
 	color:red;
@@ -61,4 +64,9 @@
 		padding: 12px;
 		border: 1px solid #fff;
 	}
+}
+
+.cs-export
+{
+	margin: 10px 0;
 }

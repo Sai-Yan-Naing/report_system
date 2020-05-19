@@ -1,26 +1,61 @@
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+<nav class="navbar navbar-expand-sm hearder-cs fixed-top">
   <!-- Brand/logo -->
-  <a class="navbar-brand" href="/">Logo</a>
-  <%= link_to "Report", reports_path, :class => "navbar-brand" %>
-  <!-- Links -->
+  <a class="navbar-brand logo-link" href="/"><%= image_tag "logo.png" %></a>
   <% if logged_in? %>
-    <span class="navbar-text">
-      <%= current_user.name %>
-    </span>
+  <!-- <form class="form-inline" action="/action_page.php"> -->
+    <!-- <%= form_with scope: :search, url: search_reports_path,:method => 'get', :class => "form-inline", local: true do |f| %> -->
+    <!-- <%= f.text_field :search, placeholder: "Search", :class => "form-control mr-sm-2" %> -->
+    <!-- <%= f.submit "Search", :name => nil, :class => "form-control btn btn-success" %> -->
+    <!-- <input class="form-control mr-sm-2" type="text" placeholder="Search"> -->
+    <!-- <button class="btn btn-success" type="submit">Search</button> -->
+  <!-- </form> -->
+  <!-- <% end %> -->
+
+  <%= form_tag(reports_path, :class => "form-inline",:method => 'get') do %>
+    <%= text_field_tag :search, "",placeholder: "Search Reports", :class => "form-control mr-sm-2" %>
+    <%= submit_tag 'Search', :name => nil, :class => "form-control btn btn-success" %>
   <% end %>
-  <ul class="navbar-nav ml-auto">
+
+
+  <% end %>
+  <!-- Links -->
+  <a class="navbar-brand ml-auto"><%= current_user.name %></a>
+  <ul class="navbar-nav">
     <% if logged_in? %>
     <li class="nav-item">
-      <%= link_to "Log out", logout_path, :class => "nav-link", method: :delete %>
+      <a class="nav-link user-profile" id="user_profile"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
     </li>
     <% else %>
     <li class="nav-item">
-      <%= link_to "Sign Up", new_user_path, :class => "nav-link" %>
-    </li>
-    <li class="nav-item">
-      <%= link_to "Sign In", new_session_path, :class => "nav-link" %>
+      <%= link_to new_session_path do %>
+          <i class='fa fa-sign-in cs-signin-signup' aria-hidden='true'>SignIn</i>
+      <% end %>
     </li>
     <% end %>
 
   </ul>
+  <% if logged_in? %>
+<div id="popup_profile" class="popup-profile">
+  <div class="profile-row">
+    <div class="profile-col-title">Developer:</div>
+    <div class="profile-col-description"><%= current_user.name %></div>
+  </div>
+  <div class="profile-row">
+    <div class="profile-col-title">Email:</div>
+    <div class="profile-col-description"><span><%= current_user.email %></span></div>
+  </div>
+  <div class="profile-row">
+    <div class="profile-col-title">Dept:</div>
+    <div class="profile-col-description"><%= current_user.department %></div>
+  </div>
+  <div class="profile-row">
+    <div class="profile-col-title">Company:</div>
+    <div class="profile-col-description"><%= current_user.team %></div>
+  </div>
+  <div class="profile-row btn-custom">
+    <div class="profile-col-title"><%= link_to "Log out", logout_path, method: :delete %></div>
+    <div class="profile-col-description"><%= link_to "Update Profile", edit_user_path(current_user.id), method: :get %></div>
+  </div>
+</div>
+<% end %>
 </nav>

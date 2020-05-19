@@ -57,6 +57,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #add bootstrap
 gem 'bootstrap'
+gem "font-awesome-rails"
 
 #add for secure password
 # gem 'bcrypt',  '3.1.12'
@@ -66,3 +67,10 @@ gem 'bootstrap'
 # gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
 # gem 'bcrypt'
 gem 'devise'
+
+#add pagination in rails by using pagy gem
+gem 'pagy'
+#export data to excel
+gem 'rubyzip', '>= 1.2.1'
+gem 'axlsx', git: 'https://github.com/randym/axlsx.git', ref: 'c8ac844'
+gem 'axlsx_rails'

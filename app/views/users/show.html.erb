@@ -1,22 +1,60 @@
-<div class="container mt-80">
-	<div class="row">
-		<div class="col-md-12">
-			<table class="table">
-			    <thead>
-			      <tr>
-			        <th>Name</th>
-			        <th>Email</th>
-			        <th></th>
-			      </tr>
-			    </thead>
-			    <tbody>
-			      <tr>
-			        <td><%= @user.name %></td>
-			        <td><%= @user.email %></td>
-			        <td><%= link_to "Edit", edit_user_path(@user.id) %></td>
-			      </tr>
-			    </tbody>
-			  </table>
+
+<div class="report-body">
+	<div class="container-fluid mt-80 rp-bg">
+		<div class="row">
+			<div class="col-md-12">
+				<% if is_admin? %>
+					<h4><%= link_to "Add a New User", new_user_path, :class => "cs-btn new-report btn btn-success" %>
+						| <%= link_to "View All Users", users_path, :class => "cs-btn new-report btn btn-info" %>
+						| <%= link_to "View All Reports", reports_path, :class => "cs-btn new-report btn btn-info" %>
+					</h4>
+					  <div>
+					  	<div class="cs-rp-row cs-tb-header">
+					  		<div class="cs-rp-col-date cs-rp-col-date-header">Developer</div>
+					  		<div class="cs-rp-col">email</div>
+					  		<div class="cs-rp-col">Department</div>
+					  		<div class="cs-rp-col">Team</div>
+					  		<div class="cs-rp-col-action cs-rp-col-action-header">Action</div>
+					  	</div>
+					  	<div class="cs-rp-row cs-tb-body">
+					  		<div class="cs-rp-col-date"><%= @user.name %></div>
+					  		<div class="cs-rp-col"><%= @user.email %></div>
+					  		<div class="cs-rp-col"><%= @user.department %></div>
+					  		<div class="cs-rp-col"><%= @user.team %></div>
+					  		<div class="cs-rp-col-action">
+					  			<%= link_to "Edit", edit_user_path(@user.id) %> | <%= link_to "Delete", user_path(@user.id), method: :delete, data: { confirm: 'Are you want to delete?' }, :class => "cs-btn cs-btn-danger" %>
+					  		</div>
+					  	</div>
+					  </div>
+				<% else %>
+					<h4><%= link_to "Add a New Report", new_report_path, :class => "cs-btn new-report btn btn-success" %>
+						 | <%= link_to "View All Users", users_path, :class => "cs-btn new-report btn btn-info" %>
+						 | <%= link_to "View All Reports", reports_path, :class => "cs-btn new-report btn btn-info" %>
+					</h4>
+					  <div>
+					  	<div class="cs-rp-row cs-tb-header">
+					  		<div class="cs-rp-col-date cs-rp-col-date-header">Developer</div>
+					  		<div class="cs-rp-col">email</div>
+					  		<div class="cs-rp-col">Department</div>
+					  		<div class="cs-rp-col">Team</div>
+					  		<div class="cs-rp-col-action cs-rp-col-action-header">Action</div>
+					  	</div>
+					  	<div class="cs-rp-row cs-tb-body">
+					  		<div class="cs-rp-col-date"><%= @user.name %></div>
+					  		<div class="cs-rp-col"><%= @user.email %></div>
+					  		<div class="cs-rp-col"><%= @user.department %></div>
+					  		<div class="cs-rp-col"><%= @user.team %></div>
+					  		<div class="cs-rp-col-action">
+					  			<% if current_user.id == @user.id %>
+					  			<%= link_to "Edit", edit_user_path(@user.id) %> | <%= link_to "Delete", user_path(@user.id), method: :delete, data: { confirm: 'Are you want to delete?' }, :class => "cs-btn cs-btn-danger" %>
+					  			<% end %>
+					  		</div>
+					  	</div>
+					  </div>
+				<% end%>
+					
+			</div>
 		</div>
 	</div>
+
 </div>

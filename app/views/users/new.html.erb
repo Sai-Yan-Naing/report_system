@@ -5,19 +5,7 @@
 		<div class="col-md-4">
 			<h3>Sign Up in Reporting System</h3>
 			<%= form_for(@user) do |f| %>
-				<% if @user.errors.any? %>
-				    <div id="error_explanation">
-				      <h2>
-				        <%= pluralize(@user.errors.count, "error") %> prohibited
-				        this user from being saved:
-				      </h2>
-				      <ul>
-				        <% @user.errors.full_messages.each do |msg| %>
-				          <li><%= msg %></li>
-				        <% end %>
-				      </ul>
-				    </div>
-				  <% end %>
+				<%= render 'shared/error_messages' %>
 				<div class="form-group">
 					<%= f.label :name %>
 					<%= f.text_field :name, :class => "form-control" %>
@@ -29,6 +17,14 @@
 			    <div class="form-group">
 					<%= f.label :password %>
 					<%= f.password_field :password, :class => "form-control" %>
+			    </div>
+			    <div class="form-group">
+					<%= f.label :department %>
+					<%= f.text_field :department, :class => "form-control" %>
+			    </div>
+			    <div class="form-group">
+					<%= f.label :team %>
+					<%= f.text_field :team, :class => "form-control" %>
 			    </div>
 			    <div class="form-group">
 					<%= f.label :password_confirmation, "Confirm Password" %>
