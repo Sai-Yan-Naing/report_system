@@ -19,7 +19,9 @@
 
   <% end %>
   <!-- Links -->
+  <% if logged_in? %>
   <a class="navbar-brand ml-auto"><%= current_user.name %></a>
+  <% end %>
   <ul class="navbar-nav">
     <% if logged_in? %>
     <li class="nav-item">
