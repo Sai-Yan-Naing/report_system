@@ -25,8 +25,14 @@ class Report < ApplicationRecord
 		    # else
 		    #     Report.all 
 		    # end
-		    return Report.all unless search
-      		Report.where(['morning LIKE ? or evening LIKE ? or date LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%" ]).order(:date)
+		    # return Report.all unless search
+      		# Report.where(['morning LIKE ? or evening LIKE ? or date LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%" ]).order(:date)
+      		if search
+      			Report.where(['morning LIKE ? or evening LIKE ? or date LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%" ]).order(:date)
+      		else
+      			Report.all
+      		end
+
 		end
 
 
