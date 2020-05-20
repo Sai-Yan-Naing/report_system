@@ -24,7 +24,9 @@
 			        <td><%= @report.remark %></td>
 			      </tr>
 			      <tr>
+			      	<% if @report.user_id==current_user.id %> 
 			        <td><%= link_to "Edit", edit_report_path %></td>
+			        <% end %>
 			        <td><%= link_to "Back", reports_path %></td>
 			      </tr>
 			  </table>
