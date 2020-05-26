@@ -30,6 +30,15 @@ class UsersController < ApplicationController
     # render plain: params[:user].inspect
     @user = User.new(user_params)
 
+    # build a photo and pass it into a block to set other attributes
+    # @user = User.new(params[:photo]) do |t|
+    #   if params[:photo][:data]
+    #     t.data      = params[:photo][:data].read
+    #     t.filename  = params[:photo][:data].original_filename
+    #     t.mime_type = params[:photo][:data].content_type
+    #   end
+    # end
+
     if @user.save
       # redirect_to @user
       redirect_to users_path
@@ -56,6 +65,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name,:email,:department,:team,:password,:password_confirmation)
+    params.require(:user).permit(:name,:email,:department,:team,:picture, :password,:password_confirmation)
   end
 end

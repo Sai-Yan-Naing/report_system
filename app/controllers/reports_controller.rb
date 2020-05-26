@@ -14,7 +14,6 @@ class ReportsController < ApplicationController
           # @pagy, @reports = pagy(Report.where(:user_id=>current_user.id).search(params[:search]), items: 10)
           # @pagy, @reports =  pagy(Report.where(:morning LIKE params[:search]), items: 10)
         # else
-          if is_admin?
               if params[:search]
                 @pagy, @reports = pagy(Report.search(params[:search]), items: 10)
               elsif params[:id]
@@ -31,17 +30,6 @@ class ReportsController < ApplicationController
               # end
 
               @reportss = Report.all
-          else
-              if params[:search]
-                @pagy, @reports = pagy(Report.where(:user_id=>current_user.id).search(params[:search]), items: 10)
-              elsif params[:id]
-                @pagy, @reports = pagy(Report.where(:user_id=>params[:id]).order(:date), items: 10)
-              else
-                @pagy, @reports = pagy(Report.where(:user_id=>current_user.id).order(:date), items: 10)
-              end
-              
-              @reportss = Report.where(:user_id=>current_user.id)
-          end
         # end
           
         # @pagy, @records = pagy(Product.limit(10))

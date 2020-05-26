@@ -9,3 +9,7 @@ https://www.botreetechnologies.com/blog/introducing-jquery-in-rails-6-using-webp
 
 to output user name from report controller
 https://stackoverflow.com/questions/27693339/rails-show-the-user-who-posted-the-post
+
+
+
+User.create(name:"sai yan naing", email:"sai@gmail.com", department:"system", team:"ruby", password:"admin123")

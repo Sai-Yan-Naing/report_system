@@ -2,58 +2,80 @@
 	<div class="container-fluid mt-80 rp-bg">
 		<div class="row">
 			<div class="col-md-12">
+				
+				<!-- table -->
 				<% if is_admin? %>
 					<h4><%= link_to "Add a New User", new_user_path, :class => "cs-btn new-report btn btn-success" %> 
 						| <%= link_to "View All Users", users_path, :class => "cs-btn new-report btn btn-info" %>
 						| <%= link_to "View All Reports", reports_path, :class => "cs-btn new-report btn btn-info" %></h4>
 					<div>
-					  	<div class="cs-rp-row cs-tb-header">
-					  		<div class="cs-rp-col-date cs-rp-col-date-header">Developer</div>
-					  		<div class="cs-rp-col-date">Date</div>
-					  		<div class="cs-rp-col">Morning</div>
-					  		<div class="cs-rp-col">Evening</div>
-					  		<div class="cs-rp-col cs-rp-col-action-header">Remark</div>
-					  	</div>
-					  	<% @reports.each do |rp| %>
-					  	<div class="cs-rp-row cs-tb-body">
-					  		<div class="cs-rp-col-date"><%= rp.user.name %></div>
-					  		<div class="cs-rp-col-date"><%= rp.date %></div>
-					  		<div class="cs-rp-col"><%= rp.morning %></div>
-					  		<div class="cs-rp-col"><%= rp.evening %></div>
-					  		<div class="cs-rp-col"><%= rp.remark %></div>
-					  	</div>
-					  	<% end %>
-					  </div>
-				<% else %>
-					<h4><%= link_to "Add a New Report", new_report_path, :class => "cs-btn new-report btn btn-success" %>
+				<table class="table cs-tb-body">
+				    <thead>
+				      <tr>
+				        <th>Developer</th>
+				        <th>Date</th>
+				        <th>Morning</th>
+				        <th>Evening</th>
+				        <th>Remark</th>
+				        <th>Action</th>
+				      </tr>
+				    </thead>
+				    <tbody>
+				    	<% @reports.each do |rp| %>
+					      <tr>
+					        <td><span class="picture"><%= image_tag rp.user.picture.url if rp.user.picture? %></span><%= rp.user.name %></td>
+					        <td><%= rp.date %></td>
+					        <td><%= rp.morning %></td>
+					        <td><%= rp.evening %></td>
+					        <td><%= rp.remark %></td>
+					        <td>
+					        	
+					  			<%= link_to "Show", report_path(rp.id), :class => "cs-btn" %> 
+					  			<%= link_to "Edit", edit_report_path(rp.id), :class => "cs-btn" %> | <%= link_to "Delete", report_path(rp.id), method: :delete, data: { confirm: 'Are you want to delete?' }, :class => "cs-btn cs-btn-danger" %>
+					        </td>
+					      </tr>
+				      <% end %>
+				    </tbody>
+				  </table>
+				  <% else %>
+
+				  		<h4><%= link_to "Add a New Report", new_report_path, :class => "cs-btn new-report btn btn-success" %>
 						| <%= link_to "View All Users", users_path, :class => "cs-btn new-report btn btn-info" %>
 						| <%= link_to "View All Reports", reports_path, :class => "cs-btn new-report btn btn-info" %>
 					</h4>
-					<div>
-					  	<div class="cs-rp-row cs-tb-header">
-					  		<div class="cs-rp-col-date cs-rp-col-date-header">Date</div>
-					  		<div class="cs-rp-col">Morning</div>
-					  		<div class="cs-rp-col">Evening</div>
-					  		<div class="cs-rp-col">Remark</div>
-					  		<div class="cs-rp-col-action cs-rp-col-action-header">Action</div>
-					  	</div>
-					  	<% @reports.each do |rp| %>
-					  	<div class="cs-rp-row cs-tb-body">
-					  		<div class="cs-rp-col-date"><%= rp.date %></div>
-					  		<div class="cs-rp-col"><%= rp.morning %></div>
-					  		<div class="cs-rp-col"><%= rp.evening %></div>
-					  		<div class="cs-rp-col"><%= rp.remark %></div>
-					  		<div class="cs-rp-col-action">
-					  			
+				<table class="table cs-tb-body">
+				    <thead>
+				      <tr>
+				        <th>Developer</th>
+				        <th>Date</th>
+				        <th>Morning</th>
+				        <th>Evening</th>
+				        <th>Remark</th>
+				        <th>Action</th>
+				      </tr>
+				    </thead>
+				    <tbody>
+				    	<% @reports.each do |rp| %>
+					      <tr>
+					        <td><span class="picture"><%= image_tag rp.user.picture.url if rp.user.picture? %></span><%= rp.user.name %></td>
+					        <td><%= rp.date %></td>
+					        <td><%= rp.morning %></td>
+					        <td><%= rp.evening %></td>
+					        <td><%= rp.remark %></td>
+					        <td>
+					        	
 					  			<%= link_to "Show", report_path(rp.id), :class => "cs-btn" %> 
 					  			<% if rp.user_id==current_user.id %> |
 					  			<%= link_to "Edit", edit_report_path(rp.id), :class => "cs-btn" %> | <%= link_to "Delete", report_path(rp.id), method: :delete, data: { confirm: 'Are you want to delete?' }, :class => "cs-btn cs-btn-danger" %>
 					  			<% end %>
-					  		</div>
-					  	</div>
-					  	<% end %>
-					  </div>
-				<% end %>
+					        </td>
+					      </tr>
+				      <% end %>
+				    </tbody>
+				  </table>
+
+				  <% end %>
+				<!-- end table -->
 				  
 				  <%= link_to "EXPORT",reports_path(format: "csv"), :class => "btn btn-success cs-export"  %>
 			</div>

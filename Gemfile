@@ -50,6 +50,7 @@ end
 
 group :production do
   gem 'pg'
+  gem 'fog', '1.42'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -71,6 +72,11 @@ gem 'devise'
 #add pagination in rails by using pagy gem
 gem 'pagy'
 #export data to excel
-gem 'rubyzip', '>= 1.2.1'
-gem 'axlsx', git: 'https://github.com/randym/axlsx.git', ref: 'c8ac844'
-gem 'axlsx_rails'
+# gem 'rubyzip', '>= 1.2.1'
+# gem 'axlsx', git: 'https://github.com/randym/axlsx.git', ref: 'c8ac844'
+# gem 'axlsx_rails'
+
+# upload photo
+
+gem 'carrierwave',             '1.2.2'
+gem 'mini_magick',             '4.7.0'
