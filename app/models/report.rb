@@ -7,13 +7,14 @@ class Report < ApplicationRecord
 	def self.to_csv
 	    attributes = %w{id date morning evening remark}
 
-	    CSV.generate(headers: true) do |csv|
+	    csv_data=CSV.generate(headers: true) do |csv|
 	      csv << attributes
 
 	      all.each do |report|
 	        csv << attributes.map{ |attr| report.send(attr) }
 	      end
 	    end
+	    csv_data.html_safe.strip
 	  end
 
 

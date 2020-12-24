@@ -41,8 +41,11 @@ class ReportsController < ApplicationController
 
        respond_to do |format|
           format.html
-          format.csv { send_data @reportss.to_csv, filename: "Reports-#{Date.today}.csv"}
-          # format.xls 
+          # format.csv {  send_data  @reportss.to_csv, :disposition => 'inline', :type => "multipart/related", :filename=>"test.csv" }
+          
+          format.xls { render text: @reportss,
+                  :type => "text/xls;charset=utf-8; header=present",
+                  :filename => "Report_Users_.xls"}
           # format.xls  { send_data @posts.to_csv(col_sep: "\t"), filename: "Reposts-#{Date.today}.csv" }
         end
       # end
