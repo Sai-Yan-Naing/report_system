@@ -11,10 +11,15 @@ class Report < ApplicationRecord
 	      csv << attributes
 
 	      all.each do |report|
-	        csv << attributes.map{ |attr| report.send(attr) }
+	        csv << [
+	        	report.id,
+	        	"\t001",
+	        	"\t"+report.morning,
+	        	"\t"+report.evening,
+	        	report.remark+"\t",
+	        ]
 	      end
 	    end
-	    csv_data.html_safe.strip
 	  end
 
 
