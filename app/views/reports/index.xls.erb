@@ -7,17 +7,19 @@
   <Worksheet ss:Name="Sheet1">
     <Table>
       <Row>
-        <Cell><Data ss:Type="String">First Name</Data></Cell>
-        <Cell><Data ss:Type="String">Last Name</Data></Cell>
-        <Cell><Data ss:Type="String">Join Date</Data></Cell>
+        <Cell><Data ss:Type="String">Developer</Data></Cell>
+        <Cell><Data ss:Type="String">Date</Data></Cell>
+        <Cell><Data ss:Type="String">Morning</Data></Cell>
+        <Cell><Data ss:Type="String">Evening</Data></Cell>
         <Cell><Data ss:Type="String">Login Count</Data></Cell>
       </Row>
-      <% @reportss.each do |product| %>
+      <% @reportss.each do |report| %>
       <Row>
-        <Cell><Data ss:Type="String">000000000</Data></Cell>
-        <Cell><Data ss:Type="String"><%= product.morning %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= product.evening %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= product.remark %></Data></Cell>
+        <Cell><Data ss:Type="String">report.user.name</Data></Cell>
+        <Cell><Data ss:Type="String">report.date</Data></Cell>
+        <Cell><Data ss:Type="String"><%= report.morning %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= report.evening %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= report.remark %></Data></Cell>
       </Row>
     <% end %>
     </Table>
