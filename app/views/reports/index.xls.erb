@@ -15,8 +15,8 @@
       </Row>
       <% @reportss.each do |report| %>
       <Row>
-        <Cell><Data ss:Type="String">report.user.name</Data></Cell>
-        <Cell><Data ss:Type="String">report.date</Data></Cell>
+        <Cell><Data ss:Type="String"><%= report.user.name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= report.date %></Data></Cell>
         <Cell><Data ss:Type="String"><%= report.morning %></Data></Cell>
         <Cell><Data ss:Type="String"><%= report.evening %></Data></Cell>
         <Cell><Data ss:Type="String"><%= report.remark %></Data></Cell>
